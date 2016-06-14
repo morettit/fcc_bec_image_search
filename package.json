@@ -1,0 +1,44 @@
+{
+  "name": "fcc_bec_image_search",
+  "version": "1.0.0",
+  "description": "FreeCodeCamp Backend Certification Project",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morettit/fcc_bec_image_search.git"
+  },
+  "author": "Tobia Moretti",
+  "dependencies": {
+    "async": "~0.2.8",
+    "bing-search": "0.0.1",
+    "bing.search": "^1.0.1",
+    "circular-buffer": "0.0.6",
+    "date-util": "^1.2.1",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.4.2",
+    "express": "~3.2.4",
+    "socket.io": "~0.9.14",
+    "url": "^0.11.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "npm",
+    "bing",
+    "api",
+    "image",
+    "finder",
+    "image",
+    "search",
+    "finder",
+    "search",
+    "fcc"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/morettit/fcc_bec_image_search/issues"
+  },
+  "homepage": "https://github.com/morettit/fcc_bec_image_search#readme"
+}

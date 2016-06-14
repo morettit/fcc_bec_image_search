@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Image Search Abstraction Layer</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="header">
+               FreeCodeCamp API Basejump: Image Search Abstraction Layer
+            </h1>
+            <blockquote>
+                User stories:
+                <ul>1) I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</ul>
+                <ul>2) I can paginate through the responses by adding a ?offset=2 parameter to the URL.</ul>
+                <ul>3) I can get a list of the most recently submitted search strings.</ul>
+                
+                Dev Note: 
+                <ol>I'm actually using Bing API.</ol>
+                <ol>Default Offset is set to 10.</ol>
+            </blockquote>
+            <h3>Example usage - Search Without Offset:</h3>
+            <code>https://fcc-bec-bing-image-finder.herokuapp.com/api/images/cats</code><br>
+            <h3>Output:</h3>
+            <code>
+                [
+                    {
+                        "url":"http://2.bp.blogspot.com/-WtdFq_e6eKo/TV5W5s-hS-I/AAAAAAAAAvM/gmCUYOx3bX8/s1600/Animals_Cats_Small_cat_005241_.jpg",
+                        "sourceUrl":"http://true-wildlife.blogspot.com/2011/02/cat.html",
+                        "snippet":"True Wild Life"
+                    },
+                    {
+                        "url":"http://2.bp.blogspot.com/-8XltDQ2fDJA/T_fJjDFlsUI/AAAAAAAAEIs/gXKoI_SAVxQ/s1600/Beautiful+Cats+Hd+Wallpapers_7.jpg",
+                        "sourceUrl":"http://newallwallpaper.blogspot.com/2012/07/beautiful-cats-hd-wallpapers.html",
+                        "snippet":"All Wallpapers: Beautiful Cats Hd Wallpapers"
+                    },{
+                        "url":"http://4.bp.blogspot.com/-XkviAtJ1s6Q/T3YFb2RUhDI/AAAAAAAAAVQ/EHomLZlFMKo/s1600/small+cat.jpg",
+                        "sourceUrl":"http://proxectogato.blogspot.com/2012/08/cats-wallpapers-by-bighdwallpapers.html",
+                        "snippet":"Proxecto Gato: cats wallpapers by bighdwallpapers"
+                    },{
+                        "url":"http://4.bp.blogspot.com/-h6NZxgZ8CR8/T3YC7kbhaEI/AAAAAAAAAUY/6JSTwT1EaXo/s1600/cat%2Bwallpaper%2B1.jpg",
+                        "sourceUrl":"http://proxectogato.blogspot.com/2012/08/cats-wallpapers-by-bighdwallpapers.html",
+                        "snippet":"Proxecto Gato: cats wallpapers by bighdwallpapers"
+                    },{
+                        "url":"http://dianakhayyat.files.wordpress.com/2011/05/ragamuffin_cats-kitten_1.jpg",
+                        "sourceUrl":"http://dianakhayyat.wordpress.com/2011/05/17/cats/",
+                        "snippet":"cats"
+                    },{
+                        "url":"http://images4.fanpop.com/image/photos/16000000/Beautiful-Cat-cats-16096437-1280-800.jpg",
+                        "sourceUrl":"http://fanpop.com/clubs/cats/images/16096437/title/beautiful-cat-wallpaper",
+                        "snippet":"Beautiful Cat - Cats Wallpaper (16096437) - Fanpop"
+                    },{
+                        "url":"http://4.bp.blogspot.com/--RBVfn6FzOI/Tq5kOxFGKEI/AAAAAAAACnM/LaiZLD0sUKY/s1600/cats.jpg#Cats",
+                        "sourceUrl":"http://animal-wildlife.blogspot.com/2011/10/cat.html",
+                        "snippet":"cats.jpg#Cats"
+                    },{
+                        "url":"http://images4.fanpop.com/image/photos/16000000/Beautiful-Cat-and-Kitten-cats-16095953-1280-800.jpg",
+                        "sourceUrl":"http://www.fanpop.com/clubs/cats/images/16095953/title/beautiful-cat-kitten-wallpaper",
+                        "snippet":"Beautiful Cat and Kitten - Cats Wallpaper (16095953) - Fanpop"
+                    },{
+                        "url":"http://hereticalreflections.files.wordpress.com/2013/07/little_cute_cat_1920x1080.jpg",
+                        "sourceUrl":"http://hereticalreflections.wordpress.com/2013/07/22/game-design-and-killing-the-cat/",
+                        "snippet":"Game Design and Killing the Cat"
+                    },{
+                        "url":"http://images4.fanpop.com/image/photos/18500000/Kitten-cats-18565791-1024-768.jpg",
+                        "sourceUrl":"http://fanpop.com/clubs/cats/images/18565791/title/kitten-wallpaper",
+                        "snippet":"Kitten - Cats Wallpaper (18565791) - Fanpop"
+                    }
+                ]
+            </code>
+            <h3>Example usage - Search With Offset:</h3>
+            <code>https://fcc-bec-bing-image-finder.herokuapp.com/api/images/dogs?offset=2</code><br>
+            <h3>Output:</h3>
+            <code>
+                [
+                    {
+                        "url":"http://images5.fanpop.com/image/photos/25600000/DOG-ssssss-dogs-25606625-1024-768.jpg",
+                        "sourceUrl":"http://fanpop.com/clubs/dogs/images/25606625/title/dogssssss-wallpaper",
+                        "snippet":"DOG'ssssss - Dogs Wallpaper (25606625) - Fanpop"
+                    },{
+                        "url":"http://foxinparliament.files.wordpress.com/2010/01/cute-dogs1.jpg",
+                        "sourceUrl":"http://foxinparliament.wordpress.com/tag/dogs/",
+                        "snippet":"Dogs | Fox in Parliament"
+                    }
+                ]
+            </code>
+            <h3>Example usage - Latest Search:</h3>
+            <code>https://fcc-bec-bing-image-finder.herokuapp.com/api/latest/images/</code><br>
+            <h3>Output:</h3>
+            <code>
+                [
+                    {
+                        "term":"dogs",
+                        "when":"2016/06/14 14:25:51.870 UTC"
+                    },{
+                        "term":"cats",
+                        "when":"2016/06/14 14:21:33.439 UTC"
+                    }
+                ]
+            </code>
+            <h5 align='right'>
+                </br></br></br>
+                <i>Frontend</i> <b><ins>based</ins></b> on 
+                    <span align='right' style="font-variant:small-caps">
+                        FreeCodeCamp <small>HTML TEMPLATE</small>
+                    </span></br>
+                <i>Backend</i> <b><ins>coded</ins></b> by 
+                    <span align='right' style="font-variant:small-caps">
+                        Tobia Moretti
+                    </span>
+                    (<a href="https://github.com/morettit/">morettit</a>)
+            </h5>
+        </div>
+    </body>
+</html>
